@@ -12,6 +12,7 @@ TARGET?=${BINPATH}extint
 
 ifeq (${DEBUG}, 1)
 SYMBOLS+=_DEBUG
+CFLAGS+=-g
 endif
 
 .PHONY: all clean debug

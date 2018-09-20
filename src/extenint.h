@@ -3,19 +3,22 @@
 #define EXTENINT_H_
 
 #include <stdlib.h>
+#include <stdint.h>
+#include <unistd.h>
 
 typedef struct extint_t {
-    size_t length;
-    long long int num[1];
+    ssize_t length;
+    uint64_t num[1];
 } extint_t;
 
-extint_t *new_extint();
-void del_extint();
+extint_t *extint_new();
+void extint_del(extint_t *);
 
 /*
  * Create from string 
  */
 extint_t *extint_from_str(char *);
+char *extint_to_str(extint_t *);
 
 /*
  * Basic math operators. Returns a new extint with the result 
